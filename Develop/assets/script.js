@@ -9,9 +9,18 @@ function textAreaColour(){
     debugger
     console.log(dateTimeDisplay.format("h a"))
     console.log(document.getElementById(timeAMPM).children[0].textContent)
+    //need a for loop that cycles through each time block and sets the color
     if (dateTimeDisplay.format("h a") == document.getElementById(timeAMPM).children[0].textContent){
-        document.getElementById("1pmArea").style.backgroundColor = "red"
+        document.getElementById(timeAMPM).children[1].style.backgroundColor = "red"
     }
+    else if (dateTimeDisplay.format("h a") > document.getElementById(timeAMPM).children[0].textContent){
+        document.getElementById(timeAMPM).children[1].style.backgroundColor = "grey"
+    }
+    else if (dateTimeDisplay.format("h a") > document.getElementById(timeAMPM).children[0].textContent){
+        document.getElementById(timeAMPM).children[1].style.backgroundColor = "green"
+    }
+    
+    
 }
 textAreaColour()
 //if hour is > label, display textarea background as grey
