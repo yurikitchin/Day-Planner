@@ -1,28 +1,52 @@
 var dateTimeDisplay = moment();
 console.log(dateTimeDisplay.toString());
 console.log(dateTimeDisplay.format("dddd, MMMM Do YYYY, h:mm a"));
+
 //Populate current day p tage with day, date and time
 document.getElementById("currentDay").innerHTML = dateTimeDisplay.format("dddd, MMMM Do YYYY, h:mm a");
-var timeAMPM = dateTimeDisplay.format("h a")
+var containerElement = document.querySelector(".container");
+console.log(containerElement.children);
+var divTimeArray = Array.from(containerElement.children);
+console.log(divTimeArray)
+
 //Change colour of text area
+
+//turns elements in container into an array
+
+
+
 function textAreaColour(){
-    debugger
     console.log(dateTimeDisplay.format("h a"))
-    console.log(document.getElementById(timeAMPM).children[0].textContent)
     //need a for loop that cycles through each time block and sets the color
-    if (dateTimeDisplay.format("h a") == document.getElementById(timeAMPM).children[0].textContent){
-        document.getElementById(timeAMPM).children[1].style.backgroundColor = "red"
-    }
-    else if (dateTimeDisplay.format("h a") > document.getElementById(timeAMPM).children[0].textContent){
-        document.getElementById(timeAMPM).children[1].style.backgroundColor = "grey"
-    }
-    else if (dateTimeDisplay.format("h a") > document.getElementById(timeAMPM).children[0].textContent){
-        document.getElementById(timeAMPM).children[1].style.backgroundColor = "green"
+    for (let i = 0; i < divTimeArray.length; i++){
+        var changered = divTimeArray[i].id;
+        var arrayIndexNumber = divTimeArray.indexOf(divTimeArray[i]);   
+        console.log(changered)
+        console.log(arrayIndexNumber)
+    //if hour = label display textaea background as red
+    //dateTimeDisplay.format("h a") if statement code to be added back in
+    if ("2 pm" == divTimeArray[i].id){
+        document.getElementById(changered).children[1].style.backgroundColor = "red"
+        changered = divTimeArray.indexOf(divTimeArray[i]);
+        // console.log("changered is =" + changered);
+        // console.log(divTimeArray.indexOf(divTimeArray[i]));
+    } else if (changered > divTimeArray.indexOf(divTimeArray[i])){
+        console.log("changered is =" + changered);
+        console.log(divTimeArray.indexOf(divTimeArray[i]));
     }
     
+    //if hour is > label, display textarea background as grey
+    //All textareas lower on the array are shown as grey
+     
+        
     
-}
+    
+ 
+    //if hour <  label display textare background as green
+ 
+    
+ }}
 textAreaColour()
-//if hour is > label, display textarea background as grey
-//if hour = label display textaea background as red
-//if hour <  label display textare background as green
+
+
+
