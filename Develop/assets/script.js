@@ -5,16 +5,11 @@ console.log(dateTimeDisplay.format("dddd, MMMM Do YYYY, h:mm a"));
 //Populate current day p tage with day, date and time
 document.getElementById("currentDay").innerHTML = dateTimeDisplay.format("dddd, MMMM Do YYYY, h:mm a");
 var containerElement = document.querySelector(".container");
-console.log(containerElement.children);
-var divTimeArray = Array.from(containerElement.children);
-console.log(divTimeArray)
-
-//Change colour of text area
-
 //turns elements in container into an array
-
+var divTimeArray = Array.from(containerElement.children);
 var redIndex = ""
 
+//Change colour of text area
 function textAreaColour(){
     console.log(dateTimeDisplay.format("h a"))
     //need a for loop that cycles through each time block and sets the color
@@ -40,18 +35,37 @@ function textAreaColour(){
         document.getElementById(changeColor).children[1].style.backgroundColor = "#84F05B"
     }}
     
-    
-    //All textareas lower on the array are shown as grey
-     
-        
-    
-    
- 
-    //if hour <  label display textare background as green
-} 
- 
- 
+}  
 textAreaColour()
 
+//save plans to local storage
+//create object that holds text from the text area and saves it to that ID
+var dayTasks = {
+    area7am: "",
+    area8am: "",
+    area9am: "",
+    area10am: "",    
+    area11am: "",
+    area12pm: "",
+    area1pm: "",
+    area2pm: "",
+    area3pm: "",
+    area4pm: "",
+    area5pm: "",
+}
 
+//localStorage.setItem('user', JSON.stringify(dayTasks))
 
+//add click event to button, checks area button was clicked into and saves text from that area to corresponding dayTasks key
+var button = document.getElementsByClassName("btn")
+console.log(button);
+document.querySelectorAll('.btn').forEach(item => {
+    item.addEventListener('click', event =>{
+        var chooseDiv = event. currentTarget.parentElement
+        var textArea = chooseDiv.children[1]
+        var userInput = textArea.value
+        var textID = textArea.id
+        console.log(userInput)
+        console.log(textID)
+    })
+})
