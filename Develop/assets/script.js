@@ -22,22 +22,25 @@ function textAreaColour(){
         var changeColor = divTimeArray[i].id;
         var arrayIndexNumber = divTimeArray.indexOf(divTimeArray[i]);      
         console.log(arrayIndexNumber)
+    
+    //if its the start of the day set color as green
+    if (dateTimeDisplay.format("h") <= "6"){
+        document.getElementById(changeColor).children[1].style.backgroundColor = "#84F05B"
     //if hour = label display textaea background as red
-    //dateTimeDisplay.format("h a") if statement code to be added back in
-    if ("2 pm" == divTimeArray[i].id){
+    } else if (dateTimeDisplay.format("h a") == divTimeArray[i].id){
         document.getElementById(changeColor).children[1].style.backgroundColor = "red"
         redIndex = divTimeArray.indexOf(divTimeArray[i]);
         console.log(arrayIndexNumber)
-        
+    //if hour is > label, display textarea background as grey    
     } else if  (redIndex === "") {
         document.getElementById(changeColor).children[1].style.backgroundColor = "grey"
+    //if hour is < display as green
     } else if (redIndex < arrayIndexNumber){
         console.log("this works")
-    }
-    //else if (changered > divTimeArray.indexOf(divTimeArray[i])){
-    }
+        document.getElementById(changeColor).children[1].style.backgroundColor = "#84F05B"
+    }}
     
-    //if hour is > label, display textarea background as grey
+    
     //All textareas lower on the array are shown as grey
      
         
