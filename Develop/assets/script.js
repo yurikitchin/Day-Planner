@@ -71,6 +71,7 @@ document.querySelectorAll('.btn').forEach(item => {
     })
 })
 
+//function to populate each text area from local storge
 function populateText (){}
    var populateObject = JSON.parse(localStorage.getItem('user'))
    for (var key in populateObject){
@@ -84,3 +85,9 @@ function populateText (){}
        }    
    }} }
 populateText()
+
+//clear button changes all of the values in the dayTask object back to "" and saves to local storage
+var clearBtn = document.getElementById('clear')
+//add event listener
+clearBtn.addEventListener ('click', clearFunction)
+//clear function also will reload window to leave all fields blank
