@@ -28,6 +28,16 @@ button {
   width: 10vw;
 }
 
+#btn12 {
+  width: 72vw;
+  font-size: 5em;
+  margin: auto;
+}
+
+#clear {
+  margin-bottom: 50px;
+}
+
 .userInputField {
   display: flex;
   flex-direction: row;
