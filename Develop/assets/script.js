@@ -13,7 +13,7 @@ var chooseDiv = "";
 //Change colour of text area
 function textAreaColour(){
     //need a for loop that cycles through each time block and sets the color
-    for (let i = 0; i < divTimeArray.length; i++){
+    for (let i = 0; i < 11; i++){
         var changeColor = divTimeArray[i].id;
         var arrayIndexNumber = divTimeArray.indexOf(divTimeArray[i]);          
     //if its the start of the day set color as green
@@ -29,12 +29,13 @@ function textAreaColour(){
         document.getElementById(changeColor).children[1].style.backgroundColor = "grey"
     //if hour is < display as green
     } else if (redIndex < arrayIndexNumber){
-        console.log("this works")
+        console.log(changeColor)
         document.getElementById(changeColor).children[1].style.backgroundColor = "#84F05B"
     }}
     
 }  
 textAreaColour()
+
 
 //save plans to local storage
 //create object that holds text from the text area and saves it to that ID
@@ -78,7 +79,7 @@ function populateText (){}
        if (populateObject.hasOwnProperty(key)){
            var CheckKey = key
            var populateKey = populateObject[key]
-    for (let i = 0; i < divTimeArray.length; i++){
+    for (let i = 0; i < 11; i++){
         selectIDtoPopulate = divTimeArray[i].children[1].id;
        if (selectIDtoPopulate === CheckKey){
         document.getElementById(selectIDtoPopulate).innerText = populateKey
@@ -91,3 +92,6 @@ var clearBtn = document.getElementById('clear')
 //add event listener
 clearBtn.addEventListener ('click', clearFunction)
 //clear function also will reload window to leave all fields blank
+function clearFunction () {
+    console.log(dayTasks)
+}
