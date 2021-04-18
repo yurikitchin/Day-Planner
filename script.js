@@ -31,7 +31,6 @@ function textAreaColour(){
 }
 textAreaColour()
 
-
 //save plans to local storage
 //create object that holds text from the text area and saves it to that ID
 var dayTasks = {
@@ -59,7 +58,6 @@ var dayTasks = {
             var textID = textArea.id
             var existingStorage = JSON.parse(localStorage.getItem('user'))
             dayTasks = existingStorage
-            console.log(dayTasks)
             dayTasks[textID] = userInput
             localStorage.setItem('user', JSON.stringify(dayTasks))
             
