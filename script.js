@@ -57,7 +57,11 @@ var dayTasks = {
             var userInput = textArea.value
             var textID = textArea.id
             var existingStorage = JSON.parse(localStorage.getItem('user'))
-            dayTasks = existingStorage
+            if (existingStorage === null){
+                dayTasks = dayTasks
+            } else {
+                dayTasks = existingStorage
+            }            
             dayTasks[textID] = userInput
             localStorage.setItem('user', JSON.stringify(dayTasks))
             
